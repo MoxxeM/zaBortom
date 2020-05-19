@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}
+"За бортом!" онлайн
+{% endblock %}
+
+{% block body %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="container">
+    <center>
+        <form method="post">
+            <input name="player_name" class="form-control" type="text" placeholder="Введите имя" value="" id="player_name"/> <br>
+            <input name="room_id" class="form-control" type="text" placeholder="Введите ID комнаты" value="" /> <br>
+
+            <input type="submit" class="btn btn-danger" value="Присоединиться">
+            <br>
+            <br>
+            <h3>--- ИЛИ ---</h3>
+            <br>
+        </form>
+        <button class="btn btn-info" id="create_room">Создать комнату</button>
+        <div id="info_text"></div>
+    </center>
+</div>
+
+
+<script>
+    $("#create_room").keyup(function(){
+    var player_name = $(this).val();
+
+    $.ajax({
+      url: "/",
+      type: "get",
+      data: {jsdata: player_name},
+      success: function(response) {
+        $("#info_text").html(response);
+      },
+      error: function(xhr) {
+        //Do Something to handle error
+      }
+    });
+});
+</script>
+{% endblock %}
+
+
