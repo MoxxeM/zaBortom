@@ -22,20 +22,20 @@
             <h3>--- ИЛИ ---</h3>
             <br>
         </form>
-        <button class="btn btn-info" id="create_room">Создать комнату</button>
+        <input type="button" class="btn btn-info" id="create_room" value="Создать комнату">
         <div id="info_text"></div>
     </center>
 </div>
 
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script>
-    $("#create_room").keyup(function(){
-    var player_name = $(this).val();
+$("#create_room").click(function(){
+    var text = $("#player_name").val();
 
     $.ajax({
-      url: "/",
+      url: "/jsapi/create-room",
       type: "get",
-      data: {jsdata: player_name},
+      data: {jsdata: text},
       success: function(response) {
         $("#info_text").html(response);
       },
