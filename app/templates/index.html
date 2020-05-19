@@ -12,39 +12,19 @@
 <br>
 <div class="container">
     <center>
-        <form method="post">
-            <input name="player_name" class="form-control" type="text" placeholder="Введите имя" value="" id="player_name"/> <br>
-            <input name="room_id" class="form-control" type="text" placeholder="Введите ID комнаты" value="" /> <br>
+    <form method="post">
+        <input name="player_name" class="form-control" type="text" placeholder="Введите имя" value=""  /> <br>
+        <input name="room_id" class="form-control" type="text" placeholder="Введите ID комнаты" value="" /> <br>
 
-            <input type="submit" class="btn btn-danger" value="Присоединиться">
-            <br>
-            <br>
-            <h3>--- ИЛИ ---</h3>
-            <br>
-        </form>
-        <input type="button" class="btn btn-info" id="create_room" value="Создать комнату">
-        <div id="info_text"></div>
+        <input type="submit" class="btn btn-danger" value="Присоединиться">
+        <br>
+        <br>
+        <h3>-- ИЛИ --</h3>
+        <br>
+
+             <input type="submit" class="btn btn-success" value="Создать комнату">
+    </form>
+
     </center>
-</div>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script>
-$("#create_room").click(function(){
-    var text = $("#player_name").val();
-
-    $.ajax({
-      url: "/jsapi/create-room",
-      type: "get",
-      data: {jsdata: text},
-      success: function(response) {
-        $("#info_text").html(response);
-      },
-      error: function(xhr) {
-        //Do Something to handle error
-      }
-    });
-});
-</script>
 {% endblock %}
-
-
+</div>
