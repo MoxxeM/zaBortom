@@ -13,18 +13,35 @@
 <div class="container">
     <center>
     <form method="post">
-        <input name="player_name" class="form-control" type="text" placeholder="Введите имя" value=""  /> <br>
-        <input name="room_id" class="form-control" type="text" placeholder="Введите ID комнаты" value="" /> <br>
+        <input name="player_name" class="form-control" type="text" placeholder="Введите имя" id="player_name"/> <br>
+        <input name="room_id" class="form-control" type="text" placeholder="Введите ID комнаты" id="room_id"/> <br>
 
         <input type="submit" class="btn btn-danger" value="Присоединиться">
+    </form>
         <br>
         <br>
         <h3>-- ИЛИ --</h3>
         <br>
-
-             <input type="submit" class="btn btn-success" value="Создать комнату">
-    </form>
-
+        <input type="button" class="btn btn-success" value="Создать комнату" id="create_room">
     </center>
-{% endblock %}
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<script>
+$("#create_room").click(function(){
+    var text = $("#player_name").val();
+
+    $.ajax({
+      url: "/jsapi/create-room",
+      type: "get",
+      data: {jsdata: text},
+      success: function(response) {
+        $(".container").html(response);
+      },
+      error: function(xhr) {
+        //Do Something to handle error
+      }
+    });
+});
+</script>
+{% endblock %}

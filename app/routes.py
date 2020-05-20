@@ -15,7 +15,7 @@ def index():
 @app.route('/jsapi/<query>')
 def api_request(query):
     params = request.args.get('jsdata')
-    return api.Api.get_data(query=query, request=request)
+    return api.get_data(query=query, request=request, params=params)
 
 
 @app.route('/create', methods=['GET', 'POST'])
