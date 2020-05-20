@@ -29,6 +29,10 @@ def get_current_name(query, request, params):
 def get_create_room(query, request, params):
     pass
 
+
+def get_current_room_id(query, request, params):
+    pass
+
 # more functions
 
 

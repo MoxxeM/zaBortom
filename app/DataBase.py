@@ -14,6 +14,16 @@ def init_table():
     """
 
 
+available_params_users = [
+    'room_id', 'player_name', 'updated', 'missions', 'hand', 'action',
+]
+
+
+available_params_players = [
+
+]
+
+
 class Game:
     GAME_DOES_NOT_EXIST = 0
     GAME_STARTED = 1
@@ -23,6 +33,7 @@ class Game:
     def __init__(self, room_id):
         self.room_id = room_id
         self.game_hash = md5(str(room_id).encode()).hexdigest()
+        self.users = []  # User object
 
     def exists(self):
         pass
@@ -42,11 +53,15 @@ class Game:
     def delete_game(self):
         pass
 
-    def users(self):
-        pass
+    def get_users(self):
+        return self.users
 
     def add_user(self, user):
         pass
+
+    def set_all_users(self, params):
+        for user in self.get_users():
+            user.update(params)
 
 
 class User:
@@ -79,6 +94,9 @@ class User:
         }
         :return: JSON
         """
+
+    def update(self, params):
+        pass
 
     def action_1(self):
         """
