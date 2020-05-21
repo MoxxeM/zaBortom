@@ -24,7 +24,7 @@ def api_request(query):
 
 @app.route('/create', methods=['GET', 'POST'])
 def create_room():
-    pass
+    return render_template('create.html')
 
 
 @app.route('/game/<game_hash>', methods=['GET', 'POST'])

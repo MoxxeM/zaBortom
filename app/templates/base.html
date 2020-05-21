@@ -6,8 +6,17 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 
     <title>{% block title %}{% endblock %}</title>
+    <style>
+        .fig {
+        text-align: center;
+        }
+    </style>
 </head>
 <body>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+      <a class="navbar-brand" href="/">"За бортом!" онлайн</a>
+</nav>
+<p> <img src="static/images/logozabortom.png" alt="Logo"></p>
 {% block body %}{% endblock %}
 </body>
 </html>
