@@ -5,5 +5,15 @@
 {% endblock %}
 
 {% block body %}
+<div class="container">
+    <br>
+    <br>
+    <br>
+    <h1>Все игроки:</h1>
 
+    {% for user in context.users &}
+    <div class="alert alert-info">
+        <h5>user.player_name</h5>
+    </div>
+</div>
 {% endblock %}
